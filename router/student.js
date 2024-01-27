@@ -42,12 +42,13 @@ router.get('/students/:id', async (req, res)=>{
 router.patch('/students/:id', async (req,res)=>{
     try {
         const _id = req.params.id;
-        const updateStudents = await Student.findByIdAndUpdate(_id, req.body, {new:true}); 
+        const updateStudents = await Student.findByIdAndUpdate(_id, { $set: req.body }, {new:true}); 
         res.send(updateStudents);
     } catch (error) {
         res.status(400).send(error);
     }
 })
+
 
 router.put('/students/:id', async (req, res) => {
     try {
@@ -58,6 +59,7 @@ router.put('/students/:id', async (req, res) => {
         res.status(400).send(error);
     }
 });
+
 
 router.options('/students', (req, res) => {
     res.sendStatus(200);
