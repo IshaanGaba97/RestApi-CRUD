@@ -54,10 +54,6 @@ const updateStudentWithPut = async (req, res) => {
     }
 }
 
-const optionStudent = (req, res) => {
-    res.sendStatus(200);
-}
-
 const deleteStudent = async (req, res)=>{
     try {
         const deletedStudentData = await Student.findByIdAndDelete(req.params.id);
@@ -71,4 +67,4 @@ const deleteStudent = async (req, res)=>{
      }
 }
 
-module.exports = {createStudent, getAllStudent, getStudentById, updateStudent, updateStudentWithPut, optionStudent, deleteStudent};
+module.exports = {createStudent, getAllStudent, getStudentById, updateStudent, updateStudentWithPut, deleteStudent};
